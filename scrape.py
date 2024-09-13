@@ -1,14 +1,22 @@
+import os
 import praw
+import base64
 import datetime
 import pandas as pd
 import streamlit as st
-import base64
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
+CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
+USER_AGENT = os.getenv("REDDIT_USER_AGENT")
 
 # Create a Reddit instance
 reddit = praw.Reddit(
-    client_id="client id",
-    client_secret="client secret",
-    user_agent="user agent",
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    user_agent=USER_AGENT,
 )
 
 
