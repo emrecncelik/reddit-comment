@@ -63,9 +63,7 @@ def main():
                     )
                 )
 
-            # Create a DataFrame
-            df = pd.DataFrame(comments, columns=columns)
-            st.write(df)
+            st.success(f"{len(comments)} comments scraped successfully!")
 
             # Download CSV
             csv = convert_df(df)
@@ -75,6 +73,10 @@ def main():
                 file_name="comments.csv",
                 mime="text/csv",
             )
+
+            # Create a DataFrame
+            df = pd.DataFrame(comments, columns=columns)
+            st.table(df.head(10))
 
 
 if __name__ == "__main__":
