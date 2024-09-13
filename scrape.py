@@ -65,6 +65,9 @@ def main():
 
             st.success(f"{len(comments)} comments scraped successfully!")
 
+            # Create a DataFrame
+            df = pd.DataFrame(comments, columns=columns)
+
             # Download CSV
             csv = convert_df(df)
             st.download_button(
@@ -74,8 +77,7 @@ def main():
                 mime="text/csv",
             )
 
-            # Create a DataFrame
-            df = pd.DataFrame(comments, columns=columns)
+            # Display the DataFrame
             st.table(df.head(10))
 
 
